@@ -10,15 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
+var co_browser_storage_1 = require('co-browser-storage/co-browser-storage');
+var browser_storage_config_1 = require('../browser-storage-config');
 var page_cmp_1 = require('./page-cmp');
 var AppCmp = (function () {
     function AppCmp() {
+        this._browserStorageConfig = browser_storage_config_1.browserStorageConfig;
     }
     AppCmp = __decorate([
         core_1.Component({
             selector: 'app',
-            directives: [router_1.ROUTER_DIRECTIVES],
-            template: "\n    <a [routerLink]=\"['/Page']\">Page</a><br>\n    <router-outlet></router-outlet>\n  "
+            providers: [co_browser_storage_1.CbsModel],
+            directives: [router_1.ROUTER_DIRECTIVES, co_browser_storage_1.CbsCmp],
+            template: "\n    <a [routerLink]=\"['/Page']\">Page</a><br>\n    <router-outlet></router-outlet>\n    <cbs-cmp [cbsConfig]='_browserStorageConfig'></cbs-cmp>\n  "
         }),
         router_1.RouteConfig([
             { path: '/page', as: 'Page', component: page_cmp_1.PageCmp }
