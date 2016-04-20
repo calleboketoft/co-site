@@ -9,23 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var router_1 = require('angular2/router');
-var page_cmp_1 = require('./page-cmp');
-var AppCmp = (function () {
-    function AppCmp() {
+var PageCmp = (function () {
+    function PageCmp() {
     }
-    AppCmp = __decorate([
+    PageCmp = __decorate([
         core_1.Component({
-            selector: 'app',
-            directives: [router_1.ROUTER_DIRECTIVES],
-            template: "\n    <a [routerLink]=\"['/Page']\">Page</a><br>\n    <router-outlet></router-outlet>\n  "
-        }),
-        router_1.RouteConfig([
-            { path: '/page', as: 'Page', component: page_cmp_1.PageCmp }
-        ]), 
+            selector: 'page',
+            template: "\n    <h1>Page</h1>\n  "
+        }), 
         __metadata('design:paramtypes', [])
-    ], AppCmp);
-    return AppCmp;
+    ], PageCmp);
+    return PageCmp;
 }());
-exports.AppCmp = AppCmp;
-//# sourceMappingURL=app-cmp.js.map
+exports.PageCmp = PageCmp;
+//# sourceMappingURL=page-cmp.js.map
